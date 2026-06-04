@@ -1,0 +1,46 @@
+import { Link } from 'react-router-dom'
+import CartItem from '../components/CartItem'
+import { useCart } from '../context/CartContext'
+
+function Cart() {
+	const { cartItems, subtotal, updateQuantity, removeFromCart } = useCart()
+
+	if (cartItems.length === 0) {
+		return (
+			<section className="page">
+				<h1>Your cart is empty</h1>
+				<p className="state-message">Pick a cat from our catalog to get started.</p>
+				<Link to="/cats" className="btn">
+					Browse cats
+				</Link>
+			</section>
+		)
+	}
+
+	return (
+		<section className="page">
+			<h1>Your cart</h1>
+
+			<div className="cart-list">
+				{cartItems.map((item) => (
+					<CartItem
+						key={item.id}
+						item={item}
+						onIncrease={() => updateQuantity(item.id, item.quantity + 1)}
+						onDecrease={() => updateQuantity(item.id, item.quantity - 1)}
+						onRemove={() => removeFromCart(item.id)}
+					/>
+				))}
+			</div>
+
+			<div className="order-summary">
+				<p>Subtotal: ${subtotal}</p>
+				<Link to="/checkout" className="btn">
+					Go to checkout
+				</Link>
+			</div>
+		</section>
+	)
+}
+
+export default Cart
