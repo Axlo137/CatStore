@@ -285,7 +285,14 @@ h3 {
 .pagination {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 0.6rem;
+}
+
+.pagination-page-active {
+  background: #6536e6;
+  color: #ffffff;
+  border-color: #6536e6;
 }
 
 .cart-list {
@@ -361,6 +368,25 @@ h3 {
   border: 1px solid #ded0ff;
   border-radius: 16px;
   padding: 1rem;
+}
+
+.contact-layout {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  align-items: start;
+}
+
+.contact-details {
+  color: #4b3593;
+}
+
+.contact-details h2 {
+  margin-bottom: 0.75rem;
+}
+
+.contact-details p {
+  margin: 0 0 0.75rem;
 }
 
 .checkout-form label {

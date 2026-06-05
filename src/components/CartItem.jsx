@@ -12,6 +12,7 @@ function CartItem({ item, onIncrease, onDecrease, onRemove }) {
 			</div>
 
 			<div className="cart-item-controls">
+				{/* Let the user adjust quantity or remove the row entirely. */}
 				<button type="button" onClick={onDecrease} aria-label={`Decrease ${item.name}`}>
 					-
 				</button>

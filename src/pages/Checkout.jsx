@@ -4,16 +4,19 @@ import { useCart } from '../context/CartContext'
 import { formatCurrency } from '../utils/formatCurrency'
 
 function Checkout() {
+	// Track whether the order form has been submitted.
 	const [ordered, setOrdered] = useState(false)
 	const { cartItems, subtotal, clearCart } = useCart()
 	const navigate = useNavigate()
 
+	// Block direct access to checkout when the cart is empty.
 	if (cartItems.length === 0 && !ordered) {
 		return <Navigate to="/cart" replace />
 	}
 
 	const handleSubmit = (event) => {
 		event.preventDefault()
+		// Clear the cart once the order is placed.
 		clearCart()
 		setOrdered(true)
 	}

@@ -7,10 +7,12 @@ function useCats() {
 	const [error, setError] = useState('')
 
 	useEffect(() => {
+		// Prevent state updates if the page unmounts before the fetch finishes.
 		let isMounted = true
 
 		async function loadCats() {
 			try {
+				// Load the mapped cat data from the API helper.
 				const data = await fetchCats()
 				if (isMounted) {
 					setCats(data)
@@ -29,6 +31,7 @@ function useCats() {
 		loadCats()
 
 		return () => {
+			// Mark the effect as inactive during cleanup.
 			isMounted = false
 		}
 	}, [])

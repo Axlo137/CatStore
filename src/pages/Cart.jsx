@@ -6,6 +6,7 @@ import { formatCurrency } from '../utils/formatCurrency'
 function Cart() {
 	const { cartItems, subtotal, updateQuantity, removeFromCart } = useCart()
 
+	// Show an empty state until the user adds at least one cat.
 	if (cartItems.length === 0) {
 		return (
 			<section className="page">
@@ -24,6 +25,7 @@ function Cart() {
 
 			<div className="cart-list">
 				{cartItems.map((item) => (
+					// Each cart row can change quantity or be removed entirely.
 					<CartItem
 						key={item.id}
 						item={item}

@@ -12,6 +12,7 @@ function Cats() {
 	const { cats, loading, error } = useCats()
 	const { addToCart } = useCart()
 
+	// Filter the catalog by name or breed when the user types in the search field.
 	const filteredCats = useMemo(() => {
 		if (!query.trim()) {
 			return cats
@@ -28,10 +29,14 @@ function Cats() {
 	const totalPages = Math.max(1, Math.ceil(filteredCats.length / CATS_PER_PAGE))
 	const safePage = Math.min(currentPage, totalPages)
 	const startIndex = (safePage - 1) * CATS_PER_PAGE
+	// Only show the cats for the current page.
 	const pagedCats = filteredCats.slice(startIndex, startIndex + CATS_PER_PAGE)
+	// Create a page button for each available page.
+	const pageNumbers = Array.from({ length: totalPages }, (_, index) => index + 1)
 
 	const handleSearch = (value) => {
 		setQuery(value)
+		// Jump back to the first page when the search results change.
 		setCurrentPage(1)
 	}
 
@@ -79,6 +84,19 @@ function Cats() {
 							>
 								Previous
 							</button>
+							{pageNumbers.map((pageNumber) => (
+								<button
+									key={pageNumber}
+									type="button"
+									className={`btn ${
+										pageNumber === safePage ? 'pagination-page-active' : 'btn-secondary'
+									}`}
+									onClick={() => setCurrentPage(pageNumber)}
+									aria-current={pageNumber === safePage ? 'page' : undefined}
+								>
+									{pageNumber}
+								</button>
+							))}
 							<button
 								type="button"
 								className="btn btn-secondary"

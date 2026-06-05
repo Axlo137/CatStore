@@ -15,6 +15,7 @@ function AppRoutes() {
 			<Route path="/contact" element={<Contact />} />
 			<Route path="/cart" element={<Cart />} />
 			<Route path="/checkout" element={<Checkout />} />
+			{/* Send unknown routes back to the homepage. */}
 			<Route path="*" element={<Navigate to="/" replace />} />
 		</Routes>
 	)

@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom'
 function Home() {
 	return (
 		<section className="page">
+			{/* Main welcome section with the primary navigation actions. */}
 			<div className="hero-card hero-home">
 				<p className="eyebrow">Welcome to CatStore</p>
-				<h1>Premium cats in a playful purple world</h1>
+				<h1>Premium cats looking for a forever home!</h1>
 				<p>
 					Discover unique breeds, read their personality profiles, and build your cart
 					before checkout.
@@ -21,6 +22,7 @@ function Home() {
 			</div>
 
 			<div className="home-panels">
+				{/* Quick overview cards for the store's main features. */}
 				<article className="panel">
 					<h2>Explore curated breeds</h2>
 					<p>
