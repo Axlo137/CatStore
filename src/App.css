@@ -202,6 +202,7 @@ h3 {
   margin-top: auto;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 0.5rem;
   padding: 0.9rem;
 }
@@ -368,6 +369,36 @@ h3 {
   border: 1px solid #ded0ff;
   border-radius: 16px;
   padding: 1rem;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 10, 50, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 40;
+}
+
+.order-modal {
+  width: min(560px, 100%);
+  background: #ffffff;
+  border: 1px solid #ded0ff;
+  border-radius: 16px;
+  padding: 1rem;
+}
+
+.order-modal h2 {
+  margin-bottom: 0.8rem;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 .contact-layout {

@@ -46,6 +46,7 @@ function CatDetails() {
 				<p className="eyebrow">{cat.breed}</p>
 				<h1>{cat.name}</h1>
 				<p>{cat.description}</p>
+				<p>Origin: {cat.origin}</p>
 				<p>Age: {cat.age}</p>
 				<p className="cat-price">{formatCurrency(cat.price)}</p>
 
