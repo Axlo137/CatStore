@@ -27,6 +27,7 @@ function mapBreedToCat(breed) {
 		id: breed.id,
 		name: breed.name,
 		breed: breed.name,
+		origin: breed.origin || 'Unknown origin',
 		age: years,
 		price: createRandomPrice(),
 		image: createBreedImageUrl(breed.reference_image_id),

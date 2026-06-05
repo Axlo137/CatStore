@@ -1,10 +1,19 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import CartItem from '../components/CartItem'
 import { useCart } from '../context/CartContext'
 import { formatCurrency } from '../utils/formatCurrency'
 
 function Cart() {
-	const { cartItems, subtotal, updateQuantity, removeFromCart } = useCart()
+	const [isOrderModalOpen, setIsOrderModalOpen] = useState(false)
+	const { cartItems, subtotal, updateQuantity, removeFromCart, clearCart } = useCart()
+
+	const handleOrderSubmit = (event) => {
+		event.preventDefault()
+		setIsOrderModalOpen(false)
+		clearCart()
+		alert('Order confirmed! Thank you for your purchase.')
+	}
 
 	// Show an empty state until the user adds at least one cat.
 	if (cartItems.length === 0) {
@@ -38,10 +47,37 @@ function Cart() {
 
 			<div className="order-summary">
 				<p>Subtotal: {formatCurrency(subtotal)}</p>
-				<Link to="/checkout" className="btn">
-					Go to checkout
-				</Link>
+				<button type="button" className="btn" onClick={() => setIsOrderModalOpen(true)}>
+					Order now
+				</button>
 			</div>
+
+			{isOrderModalOpen && (
+				<div className="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="order-modal-title">
+					<div className="order-modal">
+						<h2 id="order-modal-title">Complete your order</h2>
+						<form className="checkout-form" onSubmit={handleOrderSubmit}>
+							<label htmlFor="name">Full name</label>
+							<input id="name" type="text" required />
+
+							<label htmlFor="email">Email</label>
+							<input id="email" type="email" required />
+
+							<label htmlFor="address">Delivery address</label>
+							<input id="address" type="text" required />
+
+							<div className="modal-actions">
+								<button type="button" className="btn btn-secondary" onClick={() => setIsOrderModalOpen(false)}>
+									Cancel
+								</button>
+								<button type="submit" className="btn">
+									Send order
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			)}
 		</section>
 	)
 }

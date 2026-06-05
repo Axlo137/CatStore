@@ -1,16 +1,46 @@
-# React + Vite
+# CatStore
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+En React-baserad kattbutik byggd med Vite. Appen hämtar kattdata asynkront från The Cat API, visar kattkort med sökning och pagination, har detaljsidor för varje katt och en kundvagn som hanteras med Context API.
 
-Currently, two official plugins are available:
+## Funktioner
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Asynkron hämtning av kattdata från Web API
+- Sökning och pagination i katalogen
+- Flip-kort med knapp till detaljsida
+- Detaljsida med ras, ursprung och bild
+- Kundvagn med Context API och live uppdatering i menyn
+- Responsiv layout för mobil, surfplatta och desktop
 
-## React Compiler
+## Kom igång
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Krav: Node.js 18+ och npm.
 
-## Expanding the ESLint configuration
+1. Installera beroenden:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npm install
+```
+
+2. Starta utvecklingsläge:
+
+```bash
+npm run dev
+```
+
+3. Öppna adressen som visas i terminalen (vanligtvis `http://localhost:5173`).
+
+## Bygg projektet
+
+Skapa en produktionsbuild:
+
+```bash
+npm run build
+```
+
+Färdiga filer hamnar i `dist/`.
+
+## Förhandsgranska build lokalt
+
+```bash
+npm run preview
+```

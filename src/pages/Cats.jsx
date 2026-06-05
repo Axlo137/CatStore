@@ -12,18 +12,14 @@ function Cats() {
 	const { cats, loading, error } = useCats()
 	const { addToCart } = useCart()
 
-	// Filter the catalog by name or breed when the user types in the search field.
+	// Filter the catalog by cat name.
 	const filteredCats = useMemo(() => {
 		if (!query.trim()) {
 			return cats
 		}
 
 		const normalized = query.toLowerCase()
-		return cats.filter(
-			(cat) =>
-				cat.name.toLowerCase().includes(normalized) ||
-				cat.breed.toLowerCase().includes(normalized),
-		)
+		return cats.filter((cat) => cat.name.toLowerCase().includes(normalized))
 	}, [cats, query])
 
 	const totalPages = Math.max(1, Math.ceil(filteredCats.length / CATS_PER_PAGE))
