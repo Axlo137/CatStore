@@ -13,7 +13,7 @@ En React-baserad kattbutik byggd med Vite. Appen hämtar kattdata asynkront frå
 
 ## Kom igång
 
-Krav: Node.js 18+ och npm.
+Krav: Node.js och npm.
 
 1. Installera beroenden:
 
