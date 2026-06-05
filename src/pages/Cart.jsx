@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import CartItem from '../components/CartItem'
 import { useCart } from '../context/CartContext'
+import { formatCurrency } from '../utils/formatCurrency'
 
 function Cart() {
 	const { cartItems, subtotal, updateQuantity, removeFromCart } = useCart()
@@ -34,7 +35,7 @@ function Cart() {
 			</div>
 
 			<div className="order-summary">
-				<p>Subtotal: ${subtotal}</p>
+				<p>Subtotal: {formatCurrency(subtotal)}</p>
 				<Link to="/checkout" className="btn">
 					Go to checkout
 				</Link>

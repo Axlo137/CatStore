@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Navigate, useNavigate } from 'react-router-dom'
 import { useCart } from '../context/CartContext'
+import { formatCurrency } from '../utils/formatCurrency'
 
 function Checkout() {
 	const [ordered, setOrdered] = useState(false)
@@ -32,7 +33,7 @@ function Checkout() {
 	return (
 		<section className="page">
 			<h1>Checkout</h1>
-			<p className="state-message">Total: ${subtotal}</p>
+			<p className="state-message">Total: {formatCurrency(subtotal)}</p>
 
 			<form className="checkout-form" onSubmit={handleSubmit}>
 				<label htmlFor="name">Full name</label>

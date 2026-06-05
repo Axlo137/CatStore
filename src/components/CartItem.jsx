@@ -1,3 +1,5 @@
+import { formatCurrency } from '../utils/formatCurrency'
+
 function CartItem({ item, onIncrease, onDecrease, onRemove }) {
 	return (
 		<article className="cart-item">
@@ -6,7 +8,7 @@ function CartItem({ item, onIncrease, onDecrease, onRemove }) {
 			<div className="cart-item-content">
 				<h3>{item.name}</h3>
 				<p>{item.breed}</p>
-				<p>${item.price}</p>
+				<p>{formatCurrency(item.price)}</p>
 			</div>
 
 			<div className="cart-item-controls">

@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom'
 import fallbackCatImage from '../assets/kingstonbild.jpeg'
 import { useCart } from '../context/CartContext'
 import useCats from '../hooks/useCats'
+import { formatCurrency } from '../utils/formatCurrency'
 
 function CatDetails() {
 	const { catId } = useParams()
@@ -46,7 +47,7 @@ function CatDetails() {
 				<h1>{cat.name}</h1>
 				<p>{cat.description}</p>
 				<p>Age: {cat.age}</p>
-				<p className="cat-price">${cat.price}</p>
+				<p className="cat-price">{formatCurrency(cat.price)}</p>
 
 				<div className="details-actions">
 					<button type="button" className="btn" onClick={() => addToCart(cat)}>

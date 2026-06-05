@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import fallbackCatImage from '../assets/kingstonbild.jpeg'
+import { formatCurrency } from '../utils/formatCurrency'
 
 function CatCard({ cat, onAddToCart }) {
 	return (
@@ -17,7 +18,7 @@ function CatCard({ cat, onAddToCart }) {
 				<h3>{cat.name}</h3>
 				<p>{cat.breed}</p>
 				<p className="cat-meta">{cat.age}</p>
-				<p className="cat-price">${cat.price}</p>
+				<p className="cat-price">{formatCurrency(cat.price)}</p>
 			</div>
 			<div className="cat-card-actions">
 				<Link to={`/cats/${cat.id}`} className="btn btn-secondary">
